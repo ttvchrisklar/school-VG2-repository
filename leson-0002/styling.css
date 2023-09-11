@@ -1,19 +1,20 @@
 .dropdown {
     text-align: center;
-    width: 100px;
-    position: relative;
+    position: absolute;
     display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(0 0 0 / 50%);
-    min-width: 20px;
-    border-radius: 10px 10px 20px 20px;
-    width: inherit;
+    /* background-color: rgb(0 0 0 / 75%); */
+    background-image: linear-gradient(rgb(0 0 0 /100%), rgb(125 0 0 / 100%));
+    min-width: 5%;
+    border-radius: 10px 10px 10px 10px;
+    width: 110%;
     text-align: center;
     transform: translateY(-12px);
+    font-size: 100%;
 }
 
 .dropdown:hover .dropdown-content {
@@ -23,7 +24,7 @@
     text-align: center;
 }
 #menue-list-items {
-    padding: 40px 0px 10px 0px;
+    padding: 30px 0px 10px 0px;
     text-decoration: none;
     color: white;
 }
@@ -39,9 +40,14 @@ body {
 header {
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: rgb(0 0 0 / 75%);
-    width: 100px;
-    height: 510px;
+    width: 4%;
+    height: 67.6%;
     position: absolute;
     border-radius: 10px 10px 20px 20px;
+}
+h1 {
+    font-size: 150%;
+}
+p {
+    font-size: 100%;
 }
