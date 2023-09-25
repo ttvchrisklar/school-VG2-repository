@@ -58,7 +58,7 @@ p {
 #imiges {
     width: 50%;
     padding: 10px;
-    background-image: linear-gradient(to top, rgb(200 35 25 /99%), rgb(150 30 30 / 66%), rgb(100 25 25 / 33%));
+    background-image: linear-gradient(to top, rgb(255 0 0 /99%), rgb(255 255 0 / 99%));
     border-radius: 20px;
 }
 #imige-div {
