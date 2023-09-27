@@ -80,7 +80,7 @@ html {
 }
 #text-div2 {
     position: absolute;
-    background-color: rgb(255 255 255 /100%);
+    background-color: rgb(255 255 255);
     width: 62%;
     height: 6%;
     z-index: -1;
@@ -90,7 +90,7 @@ html {
 }
 #text-div3 {
     position: absolute;
-    background-color: rgb(255 255 255 /100%);
+    background-color: rgb(255 255 255);
     width: 25%;
     height: 6%;
     z-index: -2;
@@ -99,7 +99,7 @@ html {
 }
 #text-div4 {
     position: absolute;
-    background-color: rgb(255 255 255 /100%);
+    background-color: rgb(255 255 255);
     width: 42%;
     height: 6%;
     z-index: -1;
