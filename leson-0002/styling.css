@@ -70,7 +70,7 @@ html {
 }
 #text-div1 {
     position: absolute;
-    background-color: rgb(255 255 255 /75%);
+    background-color: rgb(255 255 255);
     width: 15%;
     height: 6%;
     z-index: -1;
