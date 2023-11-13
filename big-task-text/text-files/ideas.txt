@@ -1,0 +1,27 @@
+    task about making backend system for Pixel CyberGear
+    needs:
+x   sentral storige system that can iteract whit all parts of the system.
+
+x   product manigment:
+        adding products.
+        edeting product names and descriptions.
+        edeting prices and locations.
+
+x   order manigment:
+      manige orders from clients and emploies for saile perpeses.
+      manige shipment and billing
+
+x   save importen client information:
+       save shipment adress
+       save billing adress
+       save clients order history
+
+x   reports:
+      make reports on amount of clients.
+      make reports on amount of orders in the past 30 days.
+      make reports on amount of mony earnt in the past 30 days.
+
+x   "securety":
+        this is my last priority.
+        making it secure from random edeting of importent documitasion.
+        at startup of the program ask for login.

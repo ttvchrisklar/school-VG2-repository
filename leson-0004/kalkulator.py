@@ -1,7 +1,7 @@
 # program som fungerer som en kalkulator
 calculatorInpute = []
 print("plise note this is a work in progres project, there is a cople of things to note:")
-print("1: after doing a number input you will need a function before inputing a new number")
+print("1: after doing a number input you will need a function before inputing a new number, you can delite the last input")
 
 def askifwantmoreinpute(a):
     askformoreinpute = a
