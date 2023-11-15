@@ -1,0 +1,4 @@
+# for opening and reading external files
+# with open('./big-task-text/text-files/products.txt','w') as f:
+#     f.writelines(data)
+#print(productlist[0].name +"\n"+ productlist[0].description +"\n"+ productlist[0].price )

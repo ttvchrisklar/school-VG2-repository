@@ -1,4 +1,25 @@
-hi
-hi
-hi
-hi
+Navn: ePaperLite
+Beskrivelse: Lett og brukervennlig e-leser med en papiraktig skjerm. 
+Pris: 899
+Antall: 100
+VareID: 0001
+Navn: SoundLink 
+Beskrivelse: Komfortable trådløse hodetelefoner med førsteklasses lydkvalitet. 
+Pris: 1299
+Antall: 10
+VareID: 0002
+Navn: FitSense 
+Beskrivelse: Spor helse og trening med en allsidig aktivitetsmåler. 
+Pris: 599
+Antall: 1
+VareID: 0003
+Navn: SoundWave
+Beskrivelse: Kompakt høyttaler med kraftig lyd og lang batterilevetid. 
+Pris: 699
+Antall: 39 
+VareID: 0004
+Navn: StreamHub 
+Beskrivelse: Enhet for enkel strømming av favorittfilmer og TV-serier. 
+Pris: 799
+Antall: 9 
+VareID: 0005

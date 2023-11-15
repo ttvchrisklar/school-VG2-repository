@@ -3,9 +3,10 @@
 x   sentral storige system that can iteract whit all parts of the system.
 
 x   product manigment:
-        adding products.
-        edeting product names and descriptions.
-        edeting prices and locations.
+        adding products. (done in the txt document)
+        edeting product names and descriptions. (done in the txt document)
+        edeting prices and locations. (done in the txt document)
+        reading the amount
 
 x   order manigment:
       manige orders from clients and emploies for saile perpeses.
