@@ -23,3 +23,78 @@ Beskrivelse: Enhet for enkel strømming av favorittfilmer og TV-serier.
 Pris: 799
 Antall: 9 
 VareID: 0005
+Navn: EcoType 
+Beskrivelse: Energisparende trådløst tastatur og mussett. 
+Pris: 499 
+Antall: 90
+VareID: 0006
+Navn: DataVault 
+Beskrivelse: Pålitelig lagringsløsning med høy kapasitet. 
+Pris: 1299 
+Antall: 20
+VareID: 0007
+Navn: SnapPro 
+Beskrivelse: En brukervennlig digital kamera for flotte bilder. 
+Pris: 999 
+Antall: 30
+VareID: 0008
+Navn: LaserJet Pro 
+Beskrivelse: Rask og pålitelig laserskriver for hjemmekontorbruk. 
+Pris: 1699 
+Antall: 34
+VareID: 0009
+Navn: CallLink 
+Beskrivelse: Sett med trådløse telefoner med klar lyd og rekkevidde. 
+Pris: 899 
+Antall: 70
+VareID: 0010
+Navn: PowerPad 
+Beskrivelse: Praktisk trådløs lader for kompatible enheter. 
+Pris: 199 
+Antall: 100
+VareID: 0011
+Navn: GloLight 
+Beskrivelse: Energisparende lampe med justerbar lysstyrke og fargetemperatur. 
+Pris: 499 
+Antall: 59
+VareID: 0012
+Navn: NetLink 
+Beskrivelse: Ruter med rask og pålitelig trådløs tilkobling. 
+Pris: 899 
+Antall: 92
+VareID: 0013
+Navn: ZoomPro 
+Beskrivelse: Lett og hendig kikkert for utendørsaktiviteter. 
+Pris: 699 
+Antall: 90
+VareID: 0014
+Navn: ConnectAll 
+Beskrivelse: Enkel tilkobling av flere enheter til datamaskinen via USB-C. 
+Pris: 349 
+Antall: 1
+VareID: 0015
+Navn: PixelBlaster 
+Beskrivelse: Presis spillmus med tilpassbare knapper og lys. 
+Pris: 799 
+Antall: 19
+VareID: 0016
+Navn: TabView 
+Beskrivelse: Justerbar holder for nettbrett og e-lesere. 
+Pris: 299 
+Antall: 83
+VareID: 0017
+Navn: QuietTune 
+Beskrivelse: Ørepropper som reduserer omgivelsesstøy for bedre lytteopplevelse. 
+Pris: 1299 
+Antall: 76
+VareID: 0018
+Navn: MouseWave 
+Beskrivelse: Trådløs optisk mus for komfortabel navigasjon. 
+Pris: 399 
+Antall: 11
+VareID: 0019
+Navn: PowerBoost 
+Beskrivelse: Oppladbart batteri for å lade enheter på farten. 
+Pris: 499 
+Antall: 78
+VareID: 0020

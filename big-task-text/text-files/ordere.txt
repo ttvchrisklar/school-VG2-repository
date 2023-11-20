@@ -1,0 +1,14 @@
+Bestilingsbeskrivelse: vare til kunde
+VareID: 0001
+Mengde: 10
+Fra: Lager
+Til: 1800 langtborte 9
+Pris: 8990
+Status: på lager
+Bestilingsnavn: vare in til lagret 
+VareID: 0001
+Mengde: 10
+Fra: Produsent
+Til: Lager
+Pris: 8000
+Status: i rute
