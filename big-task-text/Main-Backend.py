@@ -58,7 +58,7 @@ def directory():
 def Produktadministrasjon():
     # dette er får administrasjon av produkter i systemet.
     print("\nProduktadministrasjon:")
-    adminorder = input("hvor skal du: Vare navn [VN], Vare beskrivelse [VB], Vare pris [VP],vare antall [VA] , alle varer [AV], ful vare beskrivelse[FVB] tilbake [B]:")
+    adminorder = input("\nhvor skal du:\nVare navn [VN]\nVare beskrivelse [VB]\nVare pris [VP]\nvare antall [VA]\nalle varer [AV]\nful vare beskrivelse[FVB]\ntilbake [B]\nhva skal du: ")
     adminorder = str(adminorder.upper())
     valid_cases = ["VN", "VB", "VP", "VA", "AV", "FVB"]
     if adminorder in valid_cases:
@@ -77,9 +77,11 @@ def Ordrebehandling():
     match director:
         case "OI":
             print("Ny bestiling til lager")
+            newOrderMaker("OI",0)
             # make input methid for name of the order, order ID, amount, from, to, cost?, states?
         case "OU":
             print("Ny bestiling til kunde")
+            newOrderMaker("OU",0)
             # make input methid for name of the order, order ID, amount, from, to, cost?, states?
         case "AO":
             print("Alle ordere")
@@ -102,15 +104,15 @@ def Rapporter():
 
 
 def fillereader():
-    with open('./big-task-text/text-files/products.txt','r', encoding='utf-8') as f:
-        product_data = f.readlines()
-        f.close()
+    p = open('./big-task-text/text-files/products.txt','r', encoding='utf-8')
+    product_data = p.readlines()
+    p.close()
     # with open('./big-task-text/text-files/customers.txt','r', encoding='utf-8') as f:
     #     customer_data = f.readlines()
     #     f.colse()
-    with open('./big-task-text/text-files/ordere.txt','r', encoding='utf-8') as o:
-        order_data = o.readlines()
-        o.close()
+    o = open('./big-task-text/text-files/ordere.txt','r', encoding='utf-8')
+    order_data = o.readlines()
+    o.close()
     orderdatacliner(order_data)
     productdatacliner(product_data)
 
@@ -196,6 +198,104 @@ def productcheker(order):
             # error in case the adminorder gets removed mid manigment some how, idk how?
             print("error, prøv på nytt")
     Produktadministrasjon()
+
+def newOrderMaker(type, position):
+    i = position
+    match type:
+        case "OI":
+            print("ordre in")
+            newOrderInList = []
+            newOrderInList.append("Bestilingsbeskrivelse: vare til lagret")
+            while i != 2:
+                B=0
+                match i:
+                    case 0:
+                        inp = input("vare ID: ")
+                        inp = int(inp)
+                        for o in range(len(productlist)):
+                            if inp == int(productlist[o].productID):
+                                B = o
+                                break
+                        else:
+                            print("error, prøv på nytt")
+                            newOrderMaker("OI", 0)
+                        newOrderInList.append("VareID: "+ productlist[B].productID)
+                        i=1
+                    case 1:
+                        prosed = False
+                        while prosed == False:
+                            amount = input("hvor mange skal skjøpes?: ")
+                            if amount == int(amount):
+                                print("error")
+                                newOrderMaker("OI",1)
+                            print("er du siker på dene mengden: ", amount)
+                            c = input("ja [Y], nei[N]: ")
+                            c = str(c.upper())
+                            if c == "Y":
+                                prosed = True
+                        newOrderInList.append("Mengde: " + amount)
+                        newOrderInList.append("Fra: Produsent")
+                        newOrderInList.append("Til: Lager")
+                        pricestr = int(productlist[B].price) * int(amount)
+                        newOrderInList.append("Pris: " + str(pricestr))
+                        newOrderInList.append("Status: i rute")
+                        orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                        for j in range(len(newOrderInList)):
+                            orderfile.writelines("\n"+newOrderInList[j])
+                        orderfile.close()                       
+        case "OU":
+            # needs customer data so laiter on when that systems up and runing i do this!
+            print("ordre ut")
+            newOrderInList = []
+            newOrderInList.append("Bestilingsbeskrivelse: vare til kunde")
+            while i != 2:
+                B=0
+                match i:
+                    case 0:
+                        inp = input("vare ID: ")
+                        inp = int(inp)
+                        for o in range(len(productlist)):
+                            if inp == int(productlist[o].productID):
+                                B = o
+                                break
+                        else:
+                            print("error, prøv på nytt")
+                            newOrderMaker("OI", 0)
+                        newOrderInList.append("VareID: "+ productlist[B].productID)
+                        i=1
+                    case 1:
+                        prosed = False
+                        while prosed == False:
+                            amount = input("hvor mange skal sendes?: ")
+                            if amount == int(amount):
+                                print("error")
+                                newOrderMaker("OI",1)
+                            print("er du siker på dene mengden: ", amount)
+                            c = input("ja [Y], nei[N]: ")
+                            c = str(c.upper())
+                            if c == "Y":
+                                prosed = True
+                        newOrderInList.append("Mengde: " + amount)
+                        newOrderInList.append("Fra: lager")
+                        newOrderInList.append("Til: kunde") #temperery until having a custormer data base up
+                        pricestr = int(productlist[B].price) * int(amount)
+                        newOrderInList.append("Pris: " + str(pricestr))
+                        newOrderInList.append("Status: i rute")
+                        orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                        for j in range(len(newOrderInList)):
+                            orderfile.writelines("\n"+newOrderInList[j])
+                        orderfile.close()
+    uppdateClassesFromDoc()
+    Ordrebehandling()
+    print("order ferdig")
+
+def uppdateClassesFromDoc():
+    clean_product_data.clear()
+    productlist.clear()
+    customerlist.clear()
+    orderList.clear()
+    orderclasslist.clear()
+    dataclassasembeler()
 
 def onstart():
     dataclassasembeler()    
