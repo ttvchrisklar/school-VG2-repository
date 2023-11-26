@@ -189,11 +189,12 @@ def productcheker(order):
             print(productlist[oID].amount)
         case "FVB":
             #prints the full prodects "class"
-            print("--------\n"+productlist[oID].name +"\n"+ productlist[oID].description +"\n"+ productlist[oID].price+" NOK" +"\n"+productlist[oID].amount +"\n")
+            print("--------\n"+productlist[oID].name +"\n"+ productlist[oID].description +"\n"+ productlist[oID].price+" NOK" +"\n"+productlist[oID].amount +"\n"+"--------")
         case "AV":
              #prints every produckt in the database.
              for i in range(len(productlist)):
                  print("--------\n"+productlist[i].name +"\n"+ productlist[i].description +"\n"+ productlist[i].price+" NOK" +"\n"+productlist[i].amount +"\n"+ productlist[i].productID)
+             print("--------")
         case _:
             # error in case the adminorder gets removed mid manigment some how, idk how?
             print("error, prøv på nytt")
@@ -225,6 +226,7 @@ def newOrderMaker(type, position):
                         prosed = False
                         while prosed == False:
                             amount = input("hvor mange skal skjøpes?: ")
+                            amount = str(amount)
                             if amount == int(amount):
                                 print("error")
                                 newOrderMaker("OI",1)
@@ -233,16 +235,18 @@ def newOrderMaker(type, position):
                             c = str(c.upper())
                             if c == "Y":
                                 prosed = True
-                        newOrderInList.append("Mengde: " + amount)
-                        newOrderInList.append("Fra: Produsent")
-                        newOrderInList.append("Til: Lager")
-                        pricestr = int(productlist[B].price) * int(amount)
-                        newOrderInList.append("Pris: " + str(pricestr))
-                        newOrderInList.append("Status: i rute")
-                        orderfile = open('./big-task-text/text-files/ordere.txt','a')
-                        for j in range(len(newOrderInList)):
-                            orderfile.writelines("\n"+newOrderInList[j])
-                        orderfile.close()                       
+                                newOrderInList.append("Mengde: " + amount)
+                                newOrderInList.append("Fra: Produsent")
+                                newOrderInList.append("Til: Lager")
+                                pricestr = int(productlist[B].price) * int(amount)
+                                newOrderInList.append("Pris: " + str(pricestr))
+                                newOrderInList.append("Status: i rute")
+                                orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                                for j in range(len(newOrderInList)):
+                                    orderfile.writelines("\n"+newOrderInList[j])
+                                orderfile.close()
+                        i=2
+                                                  
         case "OU":
             # needs customer data so laiter on when that systems up and runing i do this!
             print("ordre ut")
@@ -275,16 +279,17 @@ def newOrderMaker(type, position):
                             c = str(c.upper())
                             if c == "Y":
                                 prosed = True
-                        newOrderInList.append("Mengde: " + amount)
-                        newOrderInList.append("Fra: lager")
-                        newOrderInList.append("Til: kunde") #temperery until having a custormer data base up
-                        pricestr = int(productlist[B].price) * int(amount)
-                        newOrderInList.append("Pris: " + str(pricestr))
-                        newOrderInList.append("Status: i rute")
-                        orderfile = open('./big-task-text/text-files/ordere.txt','a')
-                        for j in range(len(newOrderInList)):
-                            orderfile.writelines("\n"+newOrderInList[j])
-                        orderfile.close()
+                                newOrderInList.append("Mengde: " + amount)
+                                newOrderInList.append("Fra: lager")
+                                newOrderInList.append("Til: kunde") #temperery until having a custormer data base up
+                                pricestr = int(productlist[B].price) * int(amount)
+                                newOrderInList.append("Pris: " + str(pricestr))
+                                newOrderInList.append("Status: i rute")
+                                orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                                for j in range(len(newOrderInList)):
+                                    orderfile.writelines("\n"+newOrderInList[j])
+                                orderfile.close()
+                        i = 2
     uppdateClassesFromDoc()
     Ordrebehandling()
     print("order ferdig")

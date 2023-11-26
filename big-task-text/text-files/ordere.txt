@@ -12,3 +12,17 @@ Fra: Produsent
 Til: Lager
 Pris: 8990
 Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 0001
+Mengde: 10
+Fra: Produsent
+Til: Lager
+Pris: 8990
+Status: i rute
+Bestilingsbeskrivelse: vare til kunde
+VareID: 0002
+Mengde: 2
+Fra: lager
+Til: kunde
+Pris: 1798
+Status: i rute
