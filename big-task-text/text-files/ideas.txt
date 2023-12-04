@@ -2,17 +2,17 @@
     needs:
 x   sentral storige system that can iteract whit all parts of the system.
 
-x   product manigment:
+v   product manigment:
         adding products. (done in the txt document)
         edeting product names and descriptions. (done in the txt document)
         edeting prices and locations. (done in the txt document)
         reading the amount
 
-x   order manigment:
+v   order manigment:
       manige orders from clients and emploies for saile perpeses.
       manige shipment and billing
 
-x   save importen client information:
+v  save importen client information:
        save shipment adress
        save billing adress
        save clients order history
@@ -26,3 +26,6 @@ x   "securety":
         this is my last priority.
         making it secure from random edeting of importent documitasion.
         at startup of the program ask for login.
+
+todo:
+reports!!!!

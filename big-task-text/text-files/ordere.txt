@@ -1,28 +1,242 @@
-Bestilingsbeskrivelse: vare til kunde
-VareID: 0001
-Mengde: 10
-Fra: Lager
-Til: 1800 langtborte 9
-Pris: 8990
-Status: på lager
 Bestilingsbeskrivelse: vare til lagret
-VareID: 0001
-Mengde: 10
+VareID: 1
+Mengde: 50
 Fra: Produsent
-Til: Lager
-Pris: 8990
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
-VareID: 0001
-Mengde: 10
+VareID: 2
+Mengde: 50
 Fra: Produsent
-Til: Lager
-Pris: 8990
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 3
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 4
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 5
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 6
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 7
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 8
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 9
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 10
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 11
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 12
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 13
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 14
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 15
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 16
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 17
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 18
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 19
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 20
+Mengde: 50
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 44950
+Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 1
+Mengde: 20
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 17980
 Status: i rute
 Bestilingsbeskrivelse: vare til kunde
-VareID: 0002
-Mengde: 2
+VareID: 2
+Mengde: 10
 Fra: lager
-Til: kunde
-Pris: 1798
+Kunde ID: 3
+Factura til addrese: Familieveien 24
+Factura til addrese zip: 5012 Bergen
+Ordere til addrese: Familieveien 24
+Ordere til addrese zip: 5012 Bergen
+Pris: 8990
 Status: i rute

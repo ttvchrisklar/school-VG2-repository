@@ -1,100 +1,100 @@
 Navn: ePaperLite
 Beskrivelse: Lett og brukervennlig e-leser med en papiraktig skjerm. 
 Pris: 899
-Antall: 100
-VareID: 0001
+Antall: 1
+VareID: 1
 Navn: SoundLink 
 Beskrivelse: Komfortable trådløse hodetelefoner med førsteklasses lydkvalitet. 
 Pris: 1299
-Antall: 10
-VareID: 0002
+Antall: 1
+VareID: 2
 Navn: FitSense 
 Beskrivelse: Spor helse og trening med en allsidig aktivitetsmåler. 
 Pris: 599
 Antall: 1
-VareID: 0003
+VareID: 3
 Navn: SoundWave
 Beskrivelse: Kompakt høyttaler med kraftig lyd og lang batterilevetid. 
 Pris: 699
-Antall: 39 
-VareID: 0004
+Antall: 1
+VareID: 4
 Navn: StreamHub 
 Beskrivelse: Enhet for enkel strømming av favorittfilmer og TV-serier. 
 Pris: 799
-Antall: 9 
-VareID: 0005
+Antall: 1
+VareID: 5
 Navn: EcoType 
 Beskrivelse: Energisparende trådløst tastatur og mussett. 
 Pris: 499 
-Antall: 90
-VareID: 0006
+Antall: 1
+VareID: 6
 Navn: DataVault 
 Beskrivelse: Pålitelig lagringsløsning med høy kapasitet. 
 Pris: 1299 
-Antall: 20
-VareID: 0007
+Antall: 1
+VareID: 7
 Navn: SnapPro 
 Beskrivelse: En brukervennlig digital kamera for flotte bilder. 
 Pris: 999 
-Antall: 30
-VareID: 0008
+Antall: 1
+VareID: 8
 Navn: LaserJet Pro 
 Beskrivelse: Rask og pålitelig laserskriver for hjemmekontorbruk. 
 Pris: 1699 
-Antall: 34
-VareID: 0009
+Antall: 1
+VareID: 9
 Navn: CallLink 
 Beskrivelse: Sett med trådløse telefoner med klar lyd og rekkevidde. 
 Pris: 899 
-Antall: 70
-VareID: 0010
+Antall: 1
+VareID: 10
 Navn: PowerPad 
 Beskrivelse: Praktisk trådløs lader for kompatible enheter. 
 Pris: 199 
-Antall: 100
-VareID: 0011
+Antall: 1
+VareID: 11
 Navn: GloLight 
 Beskrivelse: Energisparende lampe med justerbar lysstyrke og fargetemperatur. 
 Pris: 499 
-Antall: 59
-VareID: 0012
+Antall: 1
+VareID: 12
 Navn: NetLink 
 Beskrivelse: Ruter med rask og pålitelig trådløs tilkobling. 
 Pris: 899 
-Antall: 92
-VareID: 0013
+Antall: 1
+VareID: 13
 Navn: ZoomPro 
 Beskrivelse: Lett og hendig kikkert for utendørsaktiviteter. 
 Pris: 699 
-Antall: 90
-VareID: 0014
+Antall: 1
+VareID: 14
 Navn: ConnectAll 
 Beskrivelse: Enkel tilkobling av flere enheter til datamaskinen via USB-C. 
 Pris: 349 
 Antall: 1
-VareID: 0015
+VareID: 15
 Navn: PixelBlaster 
 Beskrivelse: Presis spillmus med tilpassbare knapper og lys. 
 Pris: 799 
-Antall: 19
-VareID: 0016
+Antall: 1
+VareID: 16
 Navn: TabView 
 Beskrivelse: Justerbar holder for nettbrett og e-lesere. 
 Pris: 299 
-Antall: 83
-VareID: 0017
+Antall: 1
+VareID: 17
 Navn: QuietTune 
 Beskrivelse: Ørepropper som reduserer omgivelsesstøy for bedre lytteopplevelse. 
 Pris: 1299 
-Antall: 76
-VareID: 0018
+Antall: 1
+VareID: 18
 Navn: MouseWave 
 Beskrivelse: Trådløs optisk mus for komfortabel navigasjon. 
 Pris: 399 
-Antall: 11
-VareID: 0019
+Antall: 1
+VareID: 19
 Navn: PowerBoost 
 Beskrivelse: Oppladbart batteri for å lade enheter på farten. 
 Pris: 499 
-Antall: 78
-VareID: 0020
+Antall: 1
+VareID: 20

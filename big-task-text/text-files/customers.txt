@@ -1,16 +1,88 @@
+Type: bedrift
+Navn: Pixel CyberGear  
+Kontaktperson: silje toralei
+E-post: silje.toralei@PixelCyberGear.com
+Telefon: 19922034
+fra Land: +47
+Gateadresse: tekno 100
+Postnummer: 9919 bortestad
+Gateadresse: tekno 100
+Postnummer: 9919 bortestad
+Kundenumber: 1
+Type: privat
 Navn: Emma Smith 
-Alder: 27 år 
-Arbeid: Programvareutvikler 
-Bakgrunn: Emma er en teknologi-entusiast og jobber som programvareutvikler. Hun er alltid på jakt etter de nyeste og mest innovative teknologiske gadgetene. Hun er opptatt av kvalitet og funksjonalitet og er villig til å betale litt mer for premiumprodukter. Emma liker å holde seg oppdatert om de nyeste teknologitrendene og leser produktanmeldelser nøye før hun handler.
-Navn: DavidJohnsen 
-Alder: 35 år
-Arbeid: IT-konsulent
-Bakgrunn: David og Sarah er travle foreldre med to barn. De er opptatt med jobb, huslige plikter og barnepass. De ser etter enkle og pålitelige teknologiske produkter som gjør livet deres enklere. De verdsetter produkter med god ytelse og lang batterilevetid. Praktisk funksjonalitet og brukervennlighet er viktig for dem. 
+Kontaktperson: Emma Smith 
+E-post: emma.smith@example.com
+Telefon: 12345678
+fra Land: +47
+Gateadresse: Teknologiveien 12
+Postnummer: 0010 Oslo
+Gateadresse: Teknologiveien 12
+Postnummer: 0010 Oslo
+Kundenumber: 2
+Type: privat
+Navn: David Johnsen
+Kontaktperson: David Johnsen
+E-post: david.Johnsen@example.com
+Telefon: 98765432
+fra Land: +47
+Gateadresse: Familieveien 24
+Postnummer: 5012 Bergen
+Gateadresse: Familieveien 24
+Postnummer: 5012 Bergen
+Kundenumber: 3
+Type: privat
 Navn: Sarah Johnsen 
-Alder: 32 år 
-Arbeid: Regnskapsfører 
-Bakgrunn: David og Sarah er travle foreldre med to barn. De er opptatt med jobb, huslige plikter og barnepass. De ser etter enkle og pålitelige teknologiske produkter som gjør livet deres enklere. De verdsetter produkter med god ytelse og lang batterilevetid. Praktisk funksjonalitet og brukervennlighet er viktig for dem. 
+Kontaktperson: Sarah Johnsen 
+E-post: sarah.Johnsen@example.com
+Telefon: 92233445
+fra Land: +47
+Gateadresse: Familieveien 24
+Postnummer: 5012 Bergen
+Gateadresse: Familieveien 24
+Postnummer: 5012 Bergen
+Kundenumber: 4
+Type: privat
 Navn: Max Müller 
-Alder: 20 år 
-Arbeid: Student innen informatikk 
-Bakgrunn: Max er en universitetsstudent som studerer informatikk. Han er en ivrig teknologi-entusiast og liker å eksperimentere med ulike enheter og gadgets. Max er på jakt etter rimelige teknologiske produkter som gir mye verdi for pengene. Han leser tekniske spesifikasjoner nøye og er alltid på utkikk etter gode tilbud og kampanjer. 
+Kontaktperson: Max Müller 
+E-post: max.muller@example.com
+Telefon: 23456789
+fra Land: +47
+Gateadresse: Studentveien 7
+Postnummer: 7089 Trondheim
+Gateadresse: Studentveien 7
+Postnummer: 7089 Trondheim
+Kundenumber: 5
+Type: bedrift
+Navn: FutureTech Solutions AS 
+Kontaktperson: Anders Olsen
+E-post: anders@futuretechsolutions.no
+Telefon: 87654321
+fra Land: +47
+Gateadresse: IT-gaten 15
+Postnummer: 0152 Oslo
+Gateadresse: Teknoparken 7
+Postnummer: 0015 Oslo
+Kundenumber: 6
+Type: privat
+Navn: karl
+Kontaktperson: karl
+E-post: karl@epost.no
+Telefon: 12345678
+fra Land: +47
+Gateadresse: 1000 bortestad
+Postnummer: 1999 bortised
+Gateadresse: 1000 bortestad
+Postnummer: 1999 bortised
+Kundenumber: 7
+Type: privat
+Navn: bob
+Kontaktperson: bob
+E-post: bob@bob.no
+Telefon: 12345567
+fra Land: +47
+Gateadresse: 100kalt
+Postnummer: 1090 by
+Gateadresse: 100kalt
+Postnummer: 1090 by
+Kundenumber: 8
