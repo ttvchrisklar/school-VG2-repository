@@ -18,7 +18,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 64950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 3
@@ -29,7 +29,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 29950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 4
@@ -40,7 +40,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 34950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 5
@@ -51,7 +51,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 39950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 6
@@ -62,7 +62,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 24950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 7
@@ -73,7 +73,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 64950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 8
@@ -84,7 +84,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 49950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 9
@@ -95,7 +95,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 84950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 10
@@ -117,7 +117,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 9950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 12
@@ -128,7 +128,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 24950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 13
@@ -150,7 +150,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 34950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 15
@@ -161,7 +161,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 17450
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 16
@@ -172,7 +172,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 39950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 17
@@ -183,7 +183,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 14950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 18
@@ -194,7 +194,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 64950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 19
@@ -205,7 +205,7 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
+Pris: 19950
 Status: i rute
 Bestilingsbeskrivelse: vare til lagret
 VareID: 20
@@ -216,27 +216,27 @@ Factura til addrese: tekno 100
 Factura til addrese zip: 9919 bortestad
 Ordere til addrese: tekno 100
 Ordere til addrese zip: 9919 bortestad
-Pris: 44950
-Status: i rute
-Bestilingsbeskrivelse: vare til lagret
-VareID: 1
-Mengde: 20
-Fra: Produsent
-Kunde ID: 1
-Factura til addrese: tekno 100
-Factura til addrese zip: 9919 bortestad
-Ordere til addrese: tekno 100
-Ordere til addrese zip: 9919 bortestad
-Pris: 17980
+Pris: 24950
 Status: i rute
 Bestilingsbeskrivelse: vare til kunde
 VareID: 2
-Mengde: 10
+Mengde: 20
 Fra: lager
 Kunde ID: 3
 Factura til addrese: Familieveien 24
 Factura til addrese zip: 5012 Bergen
 Ordere til addrese: Familieveien 24
 Ordere til addrese zip: 5012 Bergen
-Pris: 8990
+Pris: 25980
+Status: i rute
+Bestilingsbeskrivelse: vare til kunde
+VareID: 10
+Mengde: 50
+Fra: lager
+Kunde ID: 5
+Factura til addrese: Studentveien 7
+Factura til addrese zip: 7089 Trondheim
+Ordere til addrese: Studentveien 7
+Ordere til addrese zip: 7089 Trondheim
+Pris: 44950
 Status: i rute

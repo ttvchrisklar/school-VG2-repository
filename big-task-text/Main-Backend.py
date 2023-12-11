@@ -43,34 +43,37 @@ class order:
 
 def directory():
     # dette er directory som gir brukeren mulighet til og bevege seg i programet.
-    print("\n\ndirectory:")
+    print("-----\ndirectory:")
     print("Produktadministrasjon [P]\nOrdrebehandling [O]\nKundehåndtering [K]\nRapporter(WIP) [R]\nHelp(WIP) [help]\nExit [exit]")
-    directoryorder = input("hva skal du: ")
-    directoryorder = str(directoryorder.upper())
+    directoryorder = input("hva skal du: ").upper()
+    if directoryorder.isdigit():
+        print("ERROR: int not acseptible epected input str")
+        directory()
+    print("-----")
     match directoryorder:
-        case "P":
-            Produktadministrasjon()
-        case "O":
-            Ordrebehandling()
-        case "K":
-            Kundehåndtering()
-        case "R":
-            Rapporter()
-        case "HELP":
-            help()
-        case "EXIT":
-            exit()
-        case _:
-            print("prøv på nytt")
-            directory()
-
-
+            case "P":
+                Produktadministrasjon()
+            case "O":
+                Ordrebehandling()
+            case "K":
+                Kundehoondtering()
+            case "R":
+                Rapporter()
+            case "HELP":
+                help()
+            case "EXIT":
+                exit()
+            case _:
+                print("prøv på nytt")
+                directory()
 
 def Produktadministrasjon():
     # dette er får administrasjon av produkter i systemet.
-    print("\nProduktadministrasjon:")
-    adminorder = input("hvor skal du:\nVare navn [VN]\nVare beskrivelse [VB]\nVare pris [VP]\nvare antall [VA]\nalle varer [AV]\nful vare beskrivelse[FVB]\ntilbake [B]\nhva skal du: ")
-    adminorder = str(adminorder.upper())
+    print("Produktadministrasjon:")
+    adminorder = input("\nVare navn [VN]\nVare beskrivelse [VB]\nVare pris [VP]\nvare antall [VA]\nalle varer [AV]\nful vare beskrivelse[FVB]\ntilbake [B]\nhva skal du: ").upper()
+    if adminorder.isdigit():
+        print("ERROR: int not acseptible epected input str")
+        Produktadministrasjon()
     valid_cases = ["VN", "VB", "VP", "VA", "AV", "FVB"]
     if adminorder in valid_cases:
         productcheker(adminorder)
@@ -83,8 +86,10 @@ def Produktadministrasjon():
 def Ordrebehandling():
     # Ordrebehandling av kundens bestilinger og bedriftens bestilinger.
     print("\nOrdrebehandling:")
-    director = input(" Ny bestiling til lager [OI]\n Ny bestiling til kunde [OU]\n Alle ordere [AO]\n tilbake[B]\n ")
-    director = str(director.upper())
+    director = input(" Ny bestiling til lager [OI]\n Ny bestiling til kunde [OU]\n Alle ordere [AO]\n tilbake[B]\n ").upper()
+    if director.isdigit():
+        print("ERROR: int not acseptible epected input str")
+        Ordrebehandling()
     match director:
         case "OI":
             print("Ny bestiling til lager")
@@ -104,34 +109,102 @@ def Ordrebehandling():
         case _:
             print("ERROR, try agin")
             Ordrebehandling()
-
-def Kundehåndtering():
+# 
+def Kundehoondtering():
     # Kundehåndtering av inormasjonen til kunder alt fra leverings adrese til facturering og ordre.
     print("\nKundehåndtering")
     opptions = ["AC","PC", "CC"]
-    inn = input("Alle kunder [AC] \nprivate kunder [PC] \nbefrift kunder [CC] \nny kunde [NC] \ntilbake[B]\nhvilken kundetype vil du vite om:")
-    inn = str(inn.upper())
+    ncopptions = ["PC", "CC"]
+    print("Alle kunder [AC] \nprivate kunder [PC] \nbefrift kunder [CC] \nny kunde [NC] \ntilbake[B]\n")
+    inn = input("hvilken kundetype vil du vite om:").upper()
+    if inn.isdigit():
+        print("ERROR: int not acseptible epected input str")
+        Kundehoondtering()
     if inn in opptions:
         printcustomerinfo(inn)
     else:
         match inn:
             case "NC":
-                new = input("\nprivat kunde[PC] \nbedrift kunde [CC] \nhva slaks kunde er dette: ")
-                new = str(new.upper())
-                if new == "AC":
-                    print("prøv på nytt")
-                    Kundehåndtering()
-                if new in opptions:
+                a = True
+                while a == True:
+                    new = input("\nprivat kunde[PC] \nbedrift kunde [CC] \nhva slaks kunde er dette: ").upper()
+                    if new.isdigit():
+                        print("ERROR: int not acseptible epected input str")
+                    else: 
+                        a == False
+                if new in ncopptions:
                     newcustomer(new)
             case "B":
                 directory() 
             case _:
-                Kundehåndtering()
-    Kundehåndtering()
-
+                print("ERROR")
+                pass
+    Kundehoondtering()
+# report director
 def Rapporter():
     # Rapporter er hvor du kan generere raporter for salg og aktivitet.
-    print("\nRapporter")
+    # need to have, a way to see the amount that has been boghut and sold, what customer has boght the moste.
+    print("Rapporter")
+    options = ["SRI", "SRU", "TS","MTM","B"]
+    print("salgs raprot in [SRI]\nsalgs raport ut [SRU]\ntop salg [TS]\nmest til minst solgt [MTM]\ntilbake[B]")
+    inn = input("hvor skal du: ").upper()
+    if inn.isdigit():
+        print("ERROR: int not acseptible epected input str")
+        Rapporter()
+    if str(inn) in options:
+        reportsystem(inn)
+    else:
+        print("ERROR: input not a function try agin")
+        Rapporter()
+# help
+def help():
+    print("Help")
+    directory()
+# reportsystem
+def reportsystem(inn):
+    amountofmony = 0
+    reportorderidholder = []
+    reportorderholder= []
+    # SRI = what the copeny have spent
+    # SRU = what they have sold.
+    # TS = top selling product.
+    # MTM = a list of what has been sold the least and the moste going in order
+    match inn:
+        case "SRI":
+            for i in range(len(orderclasslist)):
+                if orderclasslist[i].orderdescrition == "vare til lagret":
+                    reportorderidholder.append(i)
+            for i in range(len(reportorderidholder)):
+                amountofmony += int(orderclasslist[int(reportorderidholder[i])].cost)
+            print("\npenger ut: -"+str(amountofmony)+" NOK\n")
+        case "SRU":
+            for i in range(len(orderclasslist)):
+                if orderclasslist[i].orderdescrition == "vare til kunde":
+                    reportorderidholder.append(i)
+            for i in range(len(reportorderidholder)):
+                amountofmony += int(orderclasslist[int(reportorderidholder[i])].cost)
+            print("\nfortjenester: "+str(amountofmony)+" NOK\n")
+        case "TS":
+            for i in range(len(orderclasslist)):
+                if orderclasslist[i].orderdescrition == "vare til kunde":
+                    reportorderholder.append(orderclasslist[i])
+            reportorderholder = sorted(reportorderholder, reverse = True, key=lambda order: order.amount)
+            print("\nvare ID | vare bengde\n-----")   
+            print(reportorderholder[0].productID,"|",reportorderholder[0].amount, "\n-----")
+                
+        case "MTM":
+            for i in range(len(orderclasslist)):
+                if orderclasslist[i].orderdescrition == "vare til kunde":
+                    reportorderholder.append(orderclasslist[i])
+            reportorderholder = sorted(reportorderholder, reverse = True, key=lambda order: order.amount)
+            print("\nvare ID | vare bengde\n-----")
+            for i in range(len(reportorderholder)): 
+                print(reportorderholder[i].productID,"|",reportorderholder[i].amount,"\n-----")
+        case "B":
+            directory()
+        case _:
+            print("ERROR")
+    Rapporter()
 
 def printcustomerinfo(inn):
     match inn:
@@ -154,7 +227,6 @@ def newcustomer(type):
     newcustomerlist = []
     match type:
         case "PC":
-                a = True
                 newcustomerlist.append("Type: privat")
                 inn = input("navnet på kunden: ")
                 inn = str(inn)
@@ -183,11 +255,10 @@ def newcustomer(type):
                 inn = input("er dette riktig? Ja[Y] Nei [N]")
                 inn = str(inn.upper())
                 if inn == "Y":
-                    print("done")
+                    customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
                     for j in range(len(newcustomerlist)):
-                        customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8')
                         customerfile.writelines("\n"+newcustomerlist[j])
-                        customerfile.close()
+                    customerfile.close()
                 elif inn =="N":
                     newcustomer(type)
         case "CC":
@@ -227,94 +298,16 @@ def newcustomer(type):
                 inn = str(inn.upper())
                 if inn == "Y":
                     print("done")
+                    customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8')# hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
                     for j in range(len(newcustomerlist)):
-                        customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8')
                         customerfile.writelines("\n"+newcustomerlist[j])
-                        customerfile.close()
+                    customerfile.close()
                 elif inn =="N":
                     newcustomer(type)
         case _:
             print("error")
             Ordrebehandling()
     uppdateClassesFromDoc()
-
-def fillereader():
-    p = open('./big-task-text/text-files/products.txt','r', encoding='utf-8')
-    product_data = p.readlines()
-    p.close()
-    c = open('./big-task-text/text-files/customers.txt','r', encoding='utf-8')
-    customer_data = c.readlines()
-    c.close()
-    o = open('./big-task-text/text-files/ordere.txt','r', encoding='utf-8')
-    order_data = o.readlines()
-    o.close()
-    orderdatacliner(order_data)
-    productdatacliner(product_data)
-    customerdatacleaner(customer_data)
-
-def productdatacliner(unclean_data):
-    words_to_remove = ["Navn:", "Beskrivelse:", "Pris:", "VareID:", "Antall:"]
-    for item in unclean_data:
-        for word in words_to_remove:
-            item = item.replace(word, "").strip()
-        clean_product_data.append(item)
-
-def orderdatacliner(unclean_data):
-    words_to_remove = ["VareID:", "Mengde:", "Fra:", "Til:", "Pris:", "Status:", "Bestilingsbeskrivelse:", "Kunde ID:", "Factura til addrese:", "Factura til addrese zip:", "Ordere til addrese:", "Ordere til addrese zip:"]
-    for item in unclean_data:
-        for word in words_to_remove:
-            item = item.replace(word, "").strip()
-        orderList.append(item)
-
-def customerdatacleaner(unclean_data):
-    words_to_remove = ["Type: ","Navn: ","Kontaktperson: ","E-post: ","Telefon: ","fra Land: ","Gateadresse: ","Postnummer: ", "Kundenumber: "]
-    for item in unclean_data:
-        for word in words_to_remove:
-            item = item.replace(word, "").strip()
-        customerlist.append(item)  
-    
-def dataclassasembeler():
-    fillereader()
-    while len(clean_product_data)!=0:
-        i=0
-        newproduct = product(clean_product_data[i],clean_product_data[i+1],clean_product_data[i+2],str(clean_product_data[i+3]),clean_product_data[i+4])
-        productlist.append(newproduct)
-        clean_product_data.pop(i+4)
-        clean_product_data.pop(i+3)
-        clean_product_data.pop(i+2)
-        clean_product_data.pop(i+1)
-        clean_product_data.pop(i)
-    while len(orderList)!=0:
-        i=0
-        neworder = order(orderList[i],orderList[i+1],orderList[i+2],orderList[i+3],orderList[i+4],orderList[i+5],orderList[i+6],orderList[i+7],orderList[i+8],orderList[i+9],orderList[i+10])
-        orderclasslist.append(neworder)
-        orderList.pop(i+10)
-        orderList.pop(i+9)
-        orderList.pop(i+8)
-        orderList.pop(i+7)
-        orderList.pop(i+6)
-        orderList.pop(i+5)
-        orderList.pop(i+4)
-        orderList.pop(i+3)
-        orderList.pop(i+2)
-        orderList.pop(i+1)
-        orderList.pop(i)
-    while len(customerlist)!=0:
-        i=0
-        newcustomer = customer(customerlist[i],customerlist[i+1],customerlist[i+2],customerlist[i+3],customerlist[i+4],customerlist[i+5],customerlist[i+6],customerlist[i+7],customerlist[i+8],customerlist[i+9],customerlist[i+10])
-        customerclasslist.append(newcustomer)
-        customerlist.pop(i+10)
-        customerlist.pop(i+9)
-        customerlist.pop(i+8)
-        customerlist.pop(i+7)
-        customerlist.pop(i+6)
-        customerlist.pop(i+5)
-        customerlist.pop(i+4)
-        customerlist.pop(i+3)
-        customerlist.pop(i+2)
-        customerlist.pop(i+1)
-        customerlist.pop(i)
-    productlistuppdater()
 
 def productcheker(order):
     oID=0
@@ -333,16 +326,16 @@ def productcheker(order):
     match order:
         case "VN":
             # tells the name of the product
-            print(productlist[oID].name)
+            print("--------\n"+productlist[oID].name+"\n--------")
         case "VB":
             #description of the product
-            print(productlist[oID].description)
+            print("--------\n"+productlist[oID].description+"\n--------")
         case "VP":
             #price of the prduct
-            print(productlist[oID].price+" NOK")
+            print("--------\n"+productlist[oID].price+" NOK\n--------")
         case "VA":
             #the amount of products in stock
-            print(productlist[oID].amount)
+            print("--------\n"+productlist[oID].amount+"\n--------")
         case "FVB":
             #prints the full prodects "class"
             print("--------\n"+productlist[oID].name +"\n"+ productlist[oID].description +"\n"+ productlist[oID].price+" NOK" +"\n"+productlist[oID].amount +"\n"+"--------")
@@ -356,12 +349,12 @@ def productcheker(order):
             print("error, prøv på nytt")
     Produktadministrasjon()
 
-def newOrderMaker(type, position):
+def newOrderMaker(Type, position):
     i = position
-    match type:
+    newOrderInList = []
+    match Type:
         case "OI":
             print("ordre in")
-            newOrderInList = []
             newOrderInList.append("Bestilingsbeskrivelse: vare til lagret")
             while i != 2:
                 B=0
@@ -372,11 +365,12 @@ def newOrderMaker(type, position):
                         for o in range(len(productlist)):
                             if inp == int(productlist[o].productID):
                                 B = o
+                                newOrderInList.append("VareID: "+ productlist[B].productID)
+                                newOrderInList.append(productlist[B].productID)
                                 break
                         else:
                             print("error, prøv på nytt")
                             newOrderMaker("OI", 0)
-                        newOrderInList.append("VareID: "+ productlist[B].productID)
                         i=1
                     case 1:
                         prosed = False
@@ -398,11 +392,13 @@ def newOrderMaker(type, position):
                                 newOrderInList.append("Factura til addrese zip: "+str(customerclasslist[0].billingadreszipcode))
                                 newOrderInList.append("Ordere til addrese: "+str(customerclasslist[0].deliveryadres))
                                 newOrderInList.append("Ordere til addrese zip: "+str(customerclasslist[0].deliveryadreszipcode))
-                                pricestr = int(productlist[B].price) * int(amount)
+                                pricestr = int(productlist[int(newOrderInList[2])-1].price) * int(amount)
+                                newOrderInList.pop(2)
                                 newOrderInList.append("Pris: " + str(pricestr))
                                 newOrderInList.append("Status: i rute")
-                                orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                                orderfile = open('./big-task-text/text-files/ordere.txt','a',encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
                                 for j in range(len(newOrderInList)):
+                                    print(newOrderInList[j])
                                     orderfile.writelines("\n"+newOrderInList[j])
                                 orderfile.close()
                         i=2
@@ -410,7 +406,6 @@ def newOrderMaker(type, position):
         case "OU":
             # needs customer data so laiter on when that systems up and runing i do this!
             print("ordre ut")
-            newOrderInList = []
             newOrderInList.append("Bestilingsbeskrivelse: vare til kunde")
             while i != 2:
                 B=0
@@ -421,11 +416,12 @@ def newOrderMaker(type, position):
                         for o in range(len(productlist)):
                             if inp == int(productlist[o].productID):
                                 B = o
+                                newOrderInList.append("VareID: "+ productlist[B].productID)
+                                newOrderInList.append(productlist[B].productID)
                                 break
                         else:
                             print("error, prøv på nytt")
                             newOrderMaker("OU", 0)
-                        newOrderInList.append("VareID: "+ productlist[B].productID)
                         i=1
                     case 1:
                         prosedone = False
@@ -455,10 +451,11 @@ def newOrderMaker(type, position):
                                 newOrderInList.append("Factura til addrese zip: "+str(customerclasslist[t].billingadreszipcode))
                                 newOrderInList.append("Ordere til addrese: "+str(customerclasslist[t].deliveryadres))
                                 newOrderInList.append("Ordere til addrese zip: "+str(customerclasslist[t].deliveryadreszipcode))
-                                pricestr = int(productlist[B].price) * int(amount)
+                                pricestr = int(productlist[int(newOrderInList[2])-1].price) * int(amount)
+                                newOrderInList.pop(2)
                                 newOrderInList.append("Pris: " + str(pricestr))
                                 newOrderInList.append("Status: i rute")
-                                orderfile = open('./big-task-text/text-files/ordere.txt','a')
+                                orderfile = open('./big-task-text/text-files/ordere.txt','a',encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
                                 for j in range(len(newOrderInList)):
                                     orderfile.writelines("\n"+str(newOrderInList[j]))
                                 orderfile.close()
@@ -495,6 +492,81 @@ def uppdateClassesFromDoc():
     orderclasslist.clear()
     customerclasslist.clear()
     dataclassasembeler()
+
+def fillereader():
+    orderlisttxtread = open('./big-task-text/text-files/ordere.txt','r', encoding='utf-8')
+    customertxtread = open('./big-task-text/text-files/customers.txt','r', encoding='utf-8')
+    producttxtread = open('./big-task-text/text-files/products.txt','r', encoding='utf-8')
+    product_data = producttxtread.readlines()
+    customer_data = customertxtread.readlines()
+    order_data = orderlisttxtread.readlines()
+    orderdatacliner(order_data)
+    productdatacliner(product_data)
+    customerdatacleaner(customer_data)
+
+def productdatacliner(unclean_data):
+    words_to_remove = ["Navn:", "Beskrivelse:", "Pris:", "VareID:", "Antall:"]
+    for item in unclean_data:
+        for word in words_to_remove:
+            item = item.replace(word, "").strip()
+        clean_product_data.append(item)
+
+def orderdatacliner(unclean_data):
+    words_to_remove = ["VareID:", "Mengde:", "Fra:", "Til:", "Pris:", "Status:", "Bestilingsbeskrivelse:", "Kunde ID:", "Factura til addrese:", "Factura til addrese zip:", "Ordere til addrese:", "Ordere til addrese zip:"]
+    for item in unclean_data:
+        for word in words_to_remove:
+            item = item.replace(word, "").strip()
+        orderList.append(item)
+
+def customerdatacleaner(unclean_data):
+    words_to_remove = ["Type: ","Navn: ","Kontaktperson: ","E-post: ","Telefon: ","fra Land: ","Gateadresse: ","Postnummer: ", "Kundenumber: "]
+    for item in unclean_data:
+        for word in words_to_remove:
+            item = item.replace(word, "").strip()
+        customerlist.append(item)  
+    
+def dataclassasembeler():
+    fillereader()
+    while len(clean_product_data)!=0:
+        i=0
+        newproduct = product(clean_product_data[i],clean_product_data[i+1],clean_product_data[i+2],str(clean_product_data[i+3]),clean_product_data[i+4])
+        productlist.append(newproduct)
+        clean_product_data.pop(i+4)
+        clean_product_data.pop(i+3)
+        clean_product_data.pop(i+2)
+        clean_product_data.pop(i+1)
+        clean_product_data.pop(i)
+    while len(orderList)>=10:
+        i=0
+        neworder = order(orderList[i],orderList[i+1],orderList[i+2],orderList[i+3],orderList[i+4],orderList[i+5],orderList[i+6],orderList[i+7],orderList[i+8],orderList[i+9],orderList[i+10])
+        orderclasslist.append(neworder)
+        orderList.pop(i+10)
+        orderList.pop(i+9)
+        orderList.pop(i+8)
+        orderList.pop(i+7)
+        orderList.pop(i+6)
+        orderList.pop(i+5)
+        orderList.pop(i+4)
+        orderList.pop(i+3)
+        orderList.pop(i+2)
+        orderList.pop(i+1)
+        orderList.pop(i)
+    while len(customerlist)!=0:
+        i=0
+        newcustomer = customer(customerlist[i],customerlist[i+1],customerlist[i+2],customerlist[i+3],customerlist[i+4],customerlist[i+5],customerlist[i+6],customerlist[i+7],customerlist[i+8],customerlist[i+9],customerlist[i+10])
+        customerclasslist.append(newcustomer)
+        customerlist.pop(i+10)
+        customerlist.pop(i+9)
+        customerlist.pop(i+8)
+        customerlist.pop(i+7)
+        customerlist.pop(i+6)
+        customerlist.pop(i+5)
+        customerlist.pop(i+4)
+        customerlist.pop(i+3)
+        customerlist.pop(i+2)
+        customerlist.pop(i+1)
+        customerlist.pop(i)
+    productlistuppdater()
 
 def onstart():
     dataclassasembeler()    
