@@ -255,10 +255,7 @@ def newcustomer(type):
                 inn = input("er dette riktig? Ja[Y] Nei [N]")
                 inn = str(inn.upper())
                 if inn == "Y":
-                    customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
-                    for j in range(len(newcustomerlist)):
-                        customerfile.writelines("\n"+newcustomerlist[j])
-                    customerfile.close()
+                    fileediter("customers", newcustomerlist)
                 elif inn =="N":
                     newcustomer(type)
         case "CC":
@@ -297,11 +294,7 @@ def newcustomer(type):
                 inn = input("er dette riktig? Ja[Y] Nei [N]")
                 inn = str(inn.upper())
                 if inn == "Y":
-                    print("done")
-                    customerfile = open('./big-task-text/text-files/customers.txt','a', encoding='utf-8')# hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
-                    for j in range(len(newcustomerlist)):
-                        customerfile.writelines("\n"+newcustomerlist[j])
-                    customerfile.close()
+                    fileediter("customers", newcustomerlist)
                 elif inn =="N":
                     newcustomer(type)
         case _:
@@ -396,13 +389,8 @@ def newOrderMaker(Type, position):
                                 newOrderInList.pop(2)
                                 newOrderInList.append("Pris: " + str(pricestr))
                                 newOrderInList.append("Status: i rute")
-                                orderfile = open('./big-task-text/text-files/ordere.txt','a',encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
-                                for j in range(len(newOrderInList)):
-                                    print(newOrderInList[j])
-                                    orderfile.writelines("\n"+newOrderInList[j])
-                                orderfile.close()
-                        i=2
-                                                  
+                                fileediter("ordere", newOrderInList)
+                        i=2                                         
         case "OU":
             # needs customer data so laiter on when that systems up and runing i do this!
             print("ordre ut")
@@ -455,10 +443,7 @@ def newOrderMaker(Type, position):
                                 newOrderInList.pop(2)
                                 newOrderInList.append("Pris: " + str(pricestr))
                                 newOrderInList.append("Status: i rute")
-                                orderfile = open('./big-task-text/text-files/ordere.txt','a',encoding='utf-8') # hvis du skal skjøre filen i cmd og ikke i vscode, da må den ha hele linken til filen
-                                for j in range(len(newOrderInList)):
-                                    orderfile.writelines("\n"+str(newOrderInList[j]))
-                                orderfile.close()
+                                fileediter("ordere", newOrderInList)
                         i = 2
     uppdateClassesFromDoc()
     Ordrebehandling()
@@ -568,8 +553,15 @@ def dataclassasembeler():
         customerlist.pop(i)
     productlistuppdater()
 
+def fileediter(location, newitemlist):
+    print(location, newitemlist)
+    file = open(f'./big-task-text/text-files/{location}.txt','a',encoding='utf-8')
+    for i in range(len(newitemlist)):
+        file.writelines("\n"+str(newitemlist[i]))
+    file.close()
+
 def onstart():
-    dataclassasembeler()    
+    dataclassasembeler()   
     directory()
 
 onstart()
