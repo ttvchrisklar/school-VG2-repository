@@ -4,6 +4,7 @@ customerlist = []
 orderList = []
 orderclasslist = []
 customerclasslist = []
+errormesige = ["int not acseptible need input string", "Not a valid case", "Not a number"]
 # class liste.
 class product:
     def __init__(self, name, description, price, amount, productID):
@@ -44,11 +45,8 @@ class order:
 def directory():
     # dette er directory som gir brukeren mulighet til og bevege seg i programet.
     print("-----\ndirectory:")
-    print("Produktadministrasjon [P]\nOrdrebehandling [O]\nKundehåndtering [K]\nRapporter(WIP) [R]\nHelp(WIP) [help]\nExit [exit]")
+    print("Produktadministrasjon [P]\nOrdrebehandling [O]\nKundehåndtering [K]\nRapporter [R]\nHelp(WIP) [help]\nExit [exit]")
     directoryorder = input("hva skal du: ").upper()
-    if directoryorder.isdigit():
-        print("ERROR: int not acseptible epected input str")
-        directory()
     print("-----")
     match directoryorder:
             case "P":
@@ -56,7 +54,7 @@ def directory():
             case "O":
                 Ordrebehandling()
             case "K":
-                Kundehoondtering()
+                customerhandeling()
             case "R":
                 Rapporter()
             case "HELP":
@@ -69,18 +67,19 @@ def directory():
 
 def Produktadministrasjon():
     # dette er får administrasjon av produkter i systemet.
+    valid_cases = ["VN", "VB", "VP", "VA", "AV", "FVB"]
     print("Produktadministrasjon:")
     adminorder = input("\nVare navn [VN]\nVare beskrivelse [VB]\nVare pris [VP]\nvare antall [VA]\nalle varer [AV]\nful vare beskrivelse[FVB]\ntilbake [B]\nhva skal du: ").upper()
+    # see if the input is not a string
     if adminorder.isdigit():
-        print("ERROR: int not acseptible epected input str")
+        print("ERROR:" + errormesige[0])
         Produktadministrasjon()
-    valid_cases = ["VN", "VB", "VP", "VA", "AV", "FVB"]
     if adminorder in valid_cases:
         productcheker(adminorder)
     elif adminorder == "B":
         directory()
     else:
-        print("prøv på nytt")
+        print("ERROR:" + errormesige[1])
         Produktadministrasjon()
 
 def Ordrebehandling():
@@ -88,7 +87,7 @@ def Ordrebehandling():
     print("\nOrdrebehandling:")
     director = input(" Ny bestiling til lager [OI]\n Ny bestiling til kunde [OU]\n Alle ordere [AO]\n tilbake[B]\n ").upper()
     if director.isdigit():
-        print("ERROR: int not acseptible epected input str")
+        print("ERROR:" + errormesige[0])
         Ordrebehandling()
     match director:
         case "OI":
@@ -107,10 +106,10 @@ def Ordrebehandling():
         case "B":
             directory()
         case _:
-            print("ERROR, try agin")
+            print("ERROR:" + errormesige[1])
             Ordrebehandling()
 # 
-def Kundehoondtering():
+def customerhandeling():
     # Kundehåndtering av inormasjonen til kunder alt fra leverings adrese til facturering og ordre.
     print("\nKundehåndtering")
     opptions = ["AC","PC", "CC"]
@@ -118,18 +117,18 @@ def Kundehoondtering():
     print("Alle kunder [AC] \nprivate kunder [PC] \nbefrift kunder [CC] \nny kunde [NC] \ntilbake[B]\n")
     inn = input("hvilken kundetype vil du vite om:").upper()
     if inn.isdigit():
-        print("ERROR: int not acseptible epected input str")
-        Kundehoondtering()
+        print("ERROR:" + errormesige[0])
+        customerhandeling()
     if inn in opptions:
         printcustomerinfo(inn)
-    else:
+    else:    
         match inn:
             case "NC":
                 a = True
                 while a == True:
                     new = input("\nprivat kunde[PC] \nbedrift kunde [CC] \nhva slaks kunde er dette: ").upper()
                     if new.isdigit():
-                        print("ERROR: int not acseptible epected input str")
+                        print("ERROR:" + errormesige[0])
                     else: 
                         a == False
                 if new in ncopptions:
@@ -137,9 +136,8 @@ def Kundehoondtering():
             case "B":
                 directory() 
             case _:
-                print("ERROR")
-                pass
-    Kundehoondtering()
+                print("ERROR:" + errormesige[1])
+    customerhandeling()
 # report director
 def Rapporter():
     # Rapporter er hvor du kan generere raporter for salg og aktivitet.
@@ -149,16 +147,16 @@ def Rapporter():
     print("salgs raprot in [SRI]\nsalgs raport ut [SRU]\ntop salg [TS]\nmest til minst solgt [MTM]\ntilbake[B]")
     inn = input("hvor skal du: ").upper()
     if inn.isdigit():
-        print("ERROR: int not acseptible epected input str")
+        print("ERROR:" + errormesige[0])
         Rapporter()
     if str(inn) in options:
         reportsystem(inn)
     else:
-        print("ERROR: input not a function try agin")
+        print("ERROR:" + errormesige[1])
         Rapporter()
 # help
 def help():
-    print("Help")
+    print("Help, help is not implemented for resons beyond mortal understandings")
     directory()
 # reportsystem
 def reportsystem(inn):
@@ -174,23 +172,32 @@ def reportsystem(inn):
             for i in range(len(orderclasslist)):
                 if orderclasslist[i].orderdescrition == "vare til lagret":
                     reportorderidholder.append(i)
+
             for i in range(len(reportorderidholder)):
                 amountofmony += int(orderclasslist[int(reportorderidholder[i])].cost)
-            print("\npenger ut: -"+str(amountofmony)+" NOK\n")
+            
+            print(f"\npenger ut: -{amountofmony} NOK\n")
+
         case "SRU":
+
             for i in range(len(orderclasslist)):
                 if orderclasslist[i].orderdescrition == "vare til kunde":
                     reportorderidholder.append(i)
+            
             for i in range(len(reportorderidholder)):
                 amountofmony += int(orderclasslist[int(reportorderidholder[i])].cost)
-            print("\nfortjenester: "+str(amountofmony)+" NOK\n")
+            
+            print(f"\nfortjenester: {amountofmony} NOK\n")
+        
         case "TS":
+            
             for i in range(len(orderclasslist)):
                 if orderclasslist[i].orderdescrition == "vare til kunde":
                     reportorderholder.append(orderclasslist[i])
+            # this sorts the list so its the most sold at the top, lambda is an anonemus function
             reportorderholder = sorted(reportorderholder, reverse = True, key=lambda order: order.amount)
-            print("\nvare ID | vare bengde\n-----")   
-            print(reportorderholder[0].productID,"|",reportorderholder[0].amount, "\n-----")
+            
+            print(f"\nvare ID | vare bengde\n-----\n{reportorderholder[0].productID}|{reportorderholder[0].amount}\n-----")
                 
         case "MTM":
             for i in range(len(orderclasslist)):
@@ -199,11 +206,11 @@ def reportsystem(inn):
             reportorderholder = sorted(reportorderholder, reverse = True, key=lambda order: order.amount)
             print("\nvare ID | vare bengde\n-----")
             for i in range(len(reportorderholder)): 
-                print(reportorderholder[i].productID,"|",reportorderholder[i].amount,"\n-----")
+                print(f"{reportorderholder[i].productID}| {reportorderholder[i].amount}\n-----")
         case "B":
             directory()
         case _:
-            print("ERROR")
+            print(f"ERROR:{errormesige[1]}")
     Rapporter()
 
 def printcustomerinfo(inn):
@@ -211,18 +218,17 @@ def printcustomerinfo(inn):
         case "AC":
             print("-----")
             for i in range(len(customerclasslist)):
-                print("Type: "+customerclasslist[i].type +"\nNavn: "+ customerclasslist[i].name +"\nKontaktperson: "+ customerclasslist[i].contactperson +"\nE-post: "+ customerclasslist[i].email +"\nTelefon: "+ customerclasslist[i].phonenumber +"\nfra Land: "+ customerclasslist[i].numberfrom +"\nGateadresse: "+ customerclasslist[i].billingadres +"\nPostnummer: "+ customerclasslist[i].billingadreszipcode +"\nGateadresse: "+ customerclasslist[i].deliveryadres +"\nPostnummer: "+ customerclasslist[i].deliveryadreszipcode +"\nKundenumber: "+ customerclasslist[i].customerID+"\n-----") 
+                print(f"Type: {customerclasslist[i].type} \nNavn: {customerclasslist[i].name} \nKontaktperson: {customerclasslist[i].contactperson} \nE-post: {customerclasslist[i].email} \nTelefon: {customerclasslist[i].phonenumber} \nfra Land: {customerclasslist[i].numberfrom} \nGateadresse: {customerclasslist[i].billingadres} \nPostnummer: {customerclasslist[i].billingadreszipcode} \nGateadresse: {customerclasslist[i].deliveryadres} \nPostnummer: {customerclasslist[i].deliveryadreszipcode} \nKundenumber: {customerclasslist[i].customerID}\n-----") 
         case "PC":
             print("-----")
             for i in range(len(customerclasslist)):
                 if customerclasslist[i].type == "privat":
-                    print("Navn: "+ customerclasslist[i].name +"\nKontaktperson: "+ customerclasslist[i].contactperson +"\nE-post: "+ customerclasslist[i].email +"\nTelefon: "+ customerclasslist[i].phonenumber +"\nfra Land: "+ customerclasslist[i].numberfrom +"\nGateadresse: "+ customerclasslist[i].billingadres +"\nPostnummer: "+ customerclasslist[i].billingadreszipcode +"\nGateadresse: "+ customerclasslist[i].deliveryadres +"\nPostnummer: "+ customerclasslist[i].deliveryadreszipcode +"\nKundenumber: "+ customerclasslist[i].customerID+"\n-----")
+                    print(f"Type: {customerclasslist[i].type} \nNavn: {customerclasslist[i].name} \nKontaktperson: {customerclasslist[i].contactperson} \nE-post: {customerclasslist[i].email} \nTelefon: {customerclasslist[i].phonenumber} \nfra Land: {customerclasslist[i].numberfrom} \nGateadresse: {customerclasslist[i].billingadres} \nPostnummer: {customerclasslist[i].billingadreszipcode} \nGateadresse: {customerclasslist[i].deliveryadres} \nPostnummer: {customerclasslist[i].deliveryadreszipcode} \nKundenumber: {customerclasslist[i].customerID}\n-----")         
         case "CC":
             print("-----")
             for i in range(len(customerclasslist)):
                 if customerclasslist[i].type == "bedrift":
-                    print("Navn: "+ customerclasslist[i].name +"\nKontaktperson: "+ customerclasslist[i].contactperson +"\nE-post: "+ customerclasslist[i].email +"\nTelefon: "+ customerclasslist[i].phonenumber +"\nfra Land: "+ customerclasslist[i].numberfrom +"\nGateadresse: "+ customerclasslist[i].billingadres +"\nPostnummer: "+ customerclasslist[i].billingadreszipcode +"\nGateadresse: "+ customerclasslist[i].deliveryadres +"\nPostnummer: "+ customerclasslist[i].deliveryadreszipcode +"\nKundenumber: "+ customerclasslist[i].customerID+"\n-----") 
- 
+                    print(f"Type: {customerclasslist[i].type} \nNavn: {customerclasslist[i].name} \nKontaktperson: {customerclasslist[i].contactperson} \nE-post: {customerclasslist[i].email} \nTelefon: {customerclasslist[i].phonenumber} \nfra Land: {customerclasslist[i].numberfrom} \nGateadresse: {customerclasslist[i].billingadres} \nPostnummer: {customerclasslist[i].billingadreszipcode} \nGateadresse: {customerclasslist[i].deliveryadres} \nPostnummer: {customerclasslist[i].deliveryadreszipcode} \nKundenumber: {customerclasslist[i].customerID}\n-----") 
 def newcustomer(type):
     newcustomerlist = []
     match type:
@@ -298,7 +304,7 @@ def newcustomer(type):
                 elif inn =="N":
                     newcustomer(type)
         case _:
-            print("error")
+            print("ERROR:" + errormesige[1])
             Ordrebehandling()
     uppdateClassesFromDoc()
 
@@ -306,15 +312,16 @@ def productcheker(order):
     oID=0
     if order != "AV":
         #rquest a product id number from the user
-        pID = input("skriv product ID:" )
-        pID = int(pID)
+        pID = input("skriv product ID: ")
         # then loop the list to find the ID number
-        for i in range(len(productlist)):
-            if pID == int(productlist[i].productID):
-                oID = i
-                break
+        if pID.isdigit() == True:
+            for i in range(len(productlist)):
+                if int(pID) == int(productlist[i].productID):
+                    oID = i
+                    oID = int(oID)
+                    break
         else:
-            print("product fines ikke, prøv på nyt")
+            print("ERROR" + errormesige[2])
             productcheker(order)
     match order:
         case "VN":
@@ -328,10 +335,10 @@ def productcheker(order):
             print("--------\n"+productlist[oID].price+" NOK\n--------")
         case "VA":
             #the amount of products in stock
-            print("--------\n"+productlist[oID].amount+"\n--------")
+            print("--------\n"+str(productlist[oID].amount)+"\n--------")
         case "FVB":
             #prints the full prodects "class"
-            print("--------\n"+productlist[oID].name +"\n"+ productlist[oID].description +"\n"+ productlist[oID].price+" NOK" +"\n"+productlist[oID].amount +"\n"+"--------")
+            print("--------\n"+productlist[oID].name +"\n"+ productlist[oID].description +"\n"+ productlist[oID].price+" NOK" +"\n"+str(productlist[oID].amount) +"\n"+"--------")
         case "AV":
              #prints every produckt in the database.
              for i in range(len(productlist)):
@@ -339,7 +346,7 @@ def productcheker(order):
              print("--------")
         case _:
             # error in case the adminorder gets removed mid manigment some how, idk how?
-            print("error, prøv på nytt")
+            print("ERROR:" + errormesige[1])
     Produktadministrasjon()
 
 def newOrderMaker(Type, position):
@@ -353,6 +360,7 @@ def newOrderMaker(Type, position):
                 B=0
                 match i:
                     case 0:
+                        # spør om vare id
                         inp = input("vare ID: ")
                         inp = int(inp)
                         for o in range(len(productlist)):
@@ -366,6 +374,7 @@ def newOrderMaker(Type, position):
                             newOrderMaker("OI", 0)
                         i=1
                     case 1:
+                        # spør om hvor mange som skal skjøpes eller selles
                         prosed = False
                         while prosed == False:
                             amount = input("hvor mange skal skjøpes?: ")
@@ -373,7 +382,7 @@ def newOrderMaker(Type, position):
                             if amount == int(amount):
                                 print("error")
                                 newOrderMaker("OI",1)
-                            print("er du siker på dene mengden: ", amount)
+                            print(f"Er du siker på dene mengden: {amount}")
                             c = input("ja [Y], nei[N]: ")
                             c = str(c.upper())
                             if c == "Y":
@@ -399,6 +408,7 @@ def newOrderMaker(Type, position):
                 B=0
                 match i:
                     case 0:
+                         # spør om vare id
                         inp = input("vare ID: ")
                         inp = int(inp)
                         for o in range(len(productlist)):
@@ -408,18 +418,19 @@ def newOrderMaker(Type, position):
                                 newOrderInList.append(productlist[B].productID)
                                 break
                         else:
-                            print("error, prøv på nytt")
+                            print("ERROR:" + errormesige[2])
                             newOrderMaker("OU", 0)
                         i=1
                     case 1:
+                        # spør om hvor mange som skal skjøpes eller selles
                         prosedone = False
                         prosedtwo = False
                         while prosedone == False:
                             amount = input("hvor mange skal sendes?: ")
                             if amount == int(amount):
-                                print("error")
+                                print("ERROR:" + errormesige[2])
                                 newOrderMaker("OU",1)
-                            print("er du siker på dene mengden: ", amount)
+                            print(f"Er du siker på dene mengden: {amount}")
                             c = input("ja [Y], nei[N]: ")
                             c = str(c.upper())
                             if c == "Y":
@@ -457,8 +468,8 @@ def productlistuppdater():
     i= 0
     while i != len(orderclasslist):
         if str(orderclasslist[i].productID) in str(productposebiletylist):
-            t = orderclasslist[i].productID
-            t = int(t)-1
+            t = int(orderclasslist[i].productID) -1
+            t = int(t)
             amountonlist = int(productlist[t].amount)
             amountonorder = int(orderclasslist[i].amount)
             if orderclasslist[i].orderdescrition == "vare til kunde":
@@ -485,31 +496,24 @@ def fillereader():
     product_data = producttxtread.readlines()
     customer_data = customertxtread.readlines()
     order_data = orderlisttxtread.readlines()
-    orderdatacliner(order_data)
-    productdatacliner(product_data)
-    customerdatacleaner(customer_data)
+    datacleaner(product_data, clean_product_data)
+    datacleaner(order_data, orderList)
+    datacleaner(customer_data, customerlist) 
+ 
+def fileediter(location, newitemlist):
+    file = open(f'./big-task-text/text-files/{location}.txt','a',encoding='utf-8')
+    for i in range(len(newitemlist)):
+        file.writelines("\n"+str(newitemlist[i]))
+    file.close()
 
-def productdatacliner(unclean_data):
-    words_to_remove = ["Navn:", "Beskrivelse:", "Pris:", "VareID:", "Antall:"]
+def datacleaner(unclean_data, datatype):
+    # this takes in the data from the docks and proseses it so it can then be used to make objects for ease of namipulating them
+    words_to_remove = ["Type: ","Navn:", "Beskrivelse:", "Pris:", "VareID:", "Antall:","Mengde:", "Fra:", "Til:", "Bestilingsbeskrivelse:", "Kunde ID:", "Factura til addrese:", "Factura til addrese zip:", "Ordere til addrese:", "Ordere til addrese zip:","Kontaktperson: ","E-post: ","Telefon: ","fra Land: ","Gateadresse: ","Postnummer: ", "Kundenumber: "]
     for item in unclean_data:
         for word in words_to_remove:
             item = item.replace(word, "").strip()
-        clean_product_data.append(item)
+        datatype.append(item)
 
-def orderdatacliner(unclean_data):
-    words_to_remove = ["VareID:", "Mengde:", "Fra:", "Til:", "Pris:", "Status:", "Bestilingsbeskrivelse:", "Kunde ID:", "Factura til addrese:", "Factura til addrese zip:", "Ordere til addrese:", "Ordere til addrese zip:"]
-    for item in unclean_data:
-        for word in words_to_remove:
-            item = item.replace(word, "").strip()
-        orderList.append(item)
-
-def customerdatacleaner(unclean_data):
-    words_to_remove = ["Type: ","Navn: ","Kontaktperson: ","E-post: ","Telefon: ","fra Land: ","Gateadresse: ","Postnummer: ", "Kundenumber: "]
-    for item in unclean_data:
-        for word in words_to_remove:
-            item = item.replace(word, "").strip()
-        customerlist.append(item)  
-    
 def dataclassasembeler():
     fillereader()
     while len(clean_product_data)!=0:
@@ -552,13 +556,6 @@ def dataclassasembeler():
         customerlist.pop(i+1)
         customerlist.pop(i)
     productlistuppdater()
-
-def fileediter(location, newitemlist):
-    print(location, newitemlist)
-    file = open(f'./big-task-text/text-files/{location}.txt','a',encoding='utf-8')
-    for i in range(len(newitemlist)):
-        file.writelines("\n"+str(newitemlist[i]))
-    file.close()
 
 def onstart():
     dataclassasembeler()   
