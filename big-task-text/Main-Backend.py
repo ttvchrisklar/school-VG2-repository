@@ -108,7 +108,7 @@ def Ordrebehandling():
         case _:
             print("ERROR:" + errormesige[1])
             Ordrebehandling()
-# 
+
 def customerhandeling():
     # Kundehåndtering av inormasjonen til kunder alt fra leverings adrese til facturering og ordre.
     print("\nKundehåndtering")
@@ -169,6 +169,7 @@ def reportsystem(inn):
     # MTM = a list of what has been sold the least and the moste going in order
     match inn:
         case "SRI":
+            # makes a list of ids from odrers that is to storige
             for i in range(len(orderclasslist)):
                 if orderclasslist[i].orderdescrition == "vare til lagret":
                     reportorderidholder.append(i)
@@ -179,7 +180,7 @@ def reportsystem(inn):
             print(f"\npenger ut: -{amountofmony} NOK\n")
 
         case "SRU":
-
+            # makes a list of ids from odrers that is from storige to customers
             for i in range(len(orderclasslist)):
                 if orderclasslist[i].orderdescrition == "vare til kunde":
                     reportorderidholder.append(i)
@@ -314,12 +315,11 @@ def productcheker(order):
         #rquest a product id number from the user
         pID = input("skriv product ID: ")
         # then loop the list to find the ID number
-        if pID.isdigit() == True:
+        if pID.isdigit():
             for i in range(len(productlist)):
                 if int(pID) == int(productlist[i].productID):
                     oID = i
                     oID = int(oID)
-                    break
         else:
             print("ERROR" + errormesige[2])
             productcheker(order)
@@ -490,18 +490,21 @@ def uppdateClassesFromDoc():
     dataclassasembeler()
 
 def fillereader():
-    orderlisttxtread = open('./big-task-text/text-files/ordere.txt','r', encoding='utf-8')
-    customertxtread = open('./big-task-text/text-files/customers.txt','r', encoding='utf-8')
-    producttxtread = open('./big-task-text/text-files/products.txt','r', encoding='utf-8')
-    product_data = producttxtread.readlines()
-    customer_data = customertxtread.readlines()
+    # path is not permement if you want to use cmd you need to edit the path to whats under just your own path
+    orderlisttxtread = open('C:/Users/chris/Desktop/skole/programfag/coding/school-VG2-repository/big-task-text/text-files/ordere.txt','r', encoding='utf-8')
+    customertxtread = open('C:/Users/chris/Desktop/skole/programfag/coding/school-VG2-repository/big-task-text/text-files/customers.txt','r', encoding='utf-8')
+    producttxtread = open('C:/Users/chris/Desktop/skole/programfag/coding/school-VG2-repository/big-task-text/text-files/products.txt','r', encoding='utf-8')
     order_data = orderlisttxtread.readlines()
-    datacleaner(product_data, clean_product_data)
+    customer_data = customertxtread.readlines()
+    product_data = producttxtread.readlines()
     datacleaner(order_data, orderList)
     datacleaner(customer_data, customerlist) 
+    datacleaner(product_data, clean_product_data)
  
 def fileediter(location, newitemlist):
-    file = open(f'./big-task-text/text-files/{location}.txt','a',encoding='utf-8')
+    # path is not permement if you want to use cmd you need to edit the path to whats under just your own path
+    file = open(f'C:/Users/chris/Desktop/skole/programfag/coding/school-VG2-repository/big-task-text/text-files/{location}.txt','a',encoding='utf-8')
+    # this function writes new things to a txt dock
     for i in range(len(newitemlist)):
         file.writelines("\n"+str(newitemlist[i]))
     file.close()
@@ -520,6 +523,7 @@ def dataclassasembeler():
         i=0
         newproduct = product(clean_product_data[i],clean_product_data[i+1],clean_product_data[i+2],str(clean_product_data[i+3]),clean_product_data[i+4])
         productlist.append(newproduct)
+        # cleans the list in revers order from how its used
         clean_product_data.pop(i+4)
         clean_product_data.pop(i+3)
         clean_product_data.pop(i+2)
@@ -529,6 +533,7 @@ def dataclassasembeler():
         i=0
         neworder = order(orderList[i],orderList[i+1],orderList[i+2],orderList[i+3],orderList[i+4],orderList[i+5],orderList[i+6],orderList[i+7],orderList[i+8],orderList[i+9],orderList[i+10])
         orderclasslist.append(neworder)
+        # cleans the list in revers order from how its used
         orderList.pop(i+10)
         orderList.pop(i+9)
         orderList.pop(i+8)
@@ -544,6 +549,7 @@ def dataclassasembeler():
         i=0
         newcustomer = customer(customerlist[i],customerlist[i+1],customerlist[i+2],customerlist[i+3],customerlist[i+4],customerlist[i+5],customerlist[i+6],customerlist[i+7],customerlist[i+8],customerlist[i+9],customerlist[i+10])
         customerclasslist.append(newcustomer)
+        # cleans the list in revers order from how its used
         customerlist.pop(i+10)
         customerlist.pop(i+9)
         customerlist.pop(i+8)
