@@ -28,4 +28,3 @@ x   "securety":
         at startup of the program ask for login.
 
 todo:
-reports!!!!

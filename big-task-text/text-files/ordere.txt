@@ -240,3 +240,25 @@ Ordere til addrese: Studentveien 7
 Ordere til addrese zip: 7089 Trondheim
 Pris: 44950
 Status: i rute
+Bestilingsbeskrivelse: vare til lagret
+VareID: 19
+Mengde: 10
+Fra: Produsent
+Kunde ID: 1
+Factura til addrese: tekno 100
+Factura til addrese zip: 9919 bortestad
+Ordere til addrese: tekno 100
+Ordere til addrese zip: 9919 bortestad
+Pris: 3990
+Status: i rute
+Bestilingsbeskrivelse: vare til kunde
+VareID: 10
+Mengde: 4
+Fra: lager
+Kunde ID: 4
+Factura til addrese: Familieveien 24
+Factura til addrese zip: 5012 Bergen
+Ordere til addrese: Familieveien 24
+Ordere til addrese zip: 5012 Bergen
+Pris: 3596
+Status: i rute

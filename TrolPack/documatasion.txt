@@ -1,0 +1,4 @@
+links:
+https://stackoverflow.com/questions/16044229/how-to-get-keyboard-input-in-pygame/64494842#64494842
+https://stackoverflow.com/questions/56615781/how-to-check-if-keyboard-button-is-getting-spammed-and-add-a-cool-down-on-before/56617202#56617202
+https://github.com/Rabbid76/PyGameExamplesAndAnswers/blob/master/documentation/pygame/pygame_keys_and_keyboard_event.md
