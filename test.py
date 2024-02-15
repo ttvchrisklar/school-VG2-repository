@@ -1,71 +1,25 @@
-# import pygame module in this program
 import pygame
-import sys
-# activate the pygame library
-# initiate pygame and give permission
-# to use pygame's functionality.
 pygame.init()
-
-# define the RGB value for white,
-# green, blue colour .
-white = (255, 255, 255)
-green = (0, 255, 0)
-blue = (0, 0, 128)
-
-# assigning values to X and Y variable
-X = 400
-Y = 400
-
-# create the display surface object
-# of specific dimension..e(X, Y).
-display_surface = pygame.display.set_mode((X, Y))
-
-# set the pygame window name
-pygame.display.set_caption('Show Text')
-
-# create a font object.
-# 1st parameter is the font file
-# which is present in pygame.
-# 2nd parameter is size of the font
-font = pygame.font.SysFont('Corbel', 32)
-
-# create a text surface object,
-# on which text is drawn on it.
-text = font.render('GeeksForGeeks', True, green, blue)
-
-# create a rectangular object for the
-# text surface object
-textRect = text.get_rect()
-
-# set the center of the rectangular object.
-textRect.center = (X // 2, Y // 2)
-
-# infinite loop
+screen = pygame.display.set_mode((300, 300))
+player, dir, size = pygame.Rect(100,100,20,20), (0, 0), 20
+MOVEEVENT, t, trail = pygame.USEREVENT+1, 250, []
+pygame.time.set_timer(MOVEEVENT, t)
 while True:
-
-	# completely fill the surface object
-	# with white color
-	display_surface.fill(white)
-
-	# copying the text surface object
-	# to the display surface object
-	# at the center coordinate.
-	display_surface.blit(text, textRect)
-
-	# iterate over the list of Event objects
-	# that was returned by pygame.event.get() method.
-	for event in pygame.event.get():
-
-		# if event object type is QUIT
-		# then quitting the pygame
-		# and program both.
-		if event.type == pygame.QUIT:
-
-			# deactivates the pygame library
-			pygame.quit()
-
-			# quit the program.
-			quit()
-
-		# Draws the surface object to the screen.
-		pygame.display.update()
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]: dir = 0, -1
+    if keys[pygame.K_a]: dir = -1, 0
+    if keys[pygame.K_s]: dir = 0, 1
+    if keys[pygame.K_d]: dir = 1, 0
+    
+    if pygame.event.get(pygame.QUIT): break
+    for e in pygame.event.get():
+        if e.type == MOVEEVENT: # is called every 't' milliseconds
+            trail.append(player.inflate((-10, -10)))
+            trail = trail[-5:]
+            player.move_ip(*[v*size for v in dir])
+            
+    screen.fill((0,120,0))
+    for t in trail:
+        pygame.draw.rect(screen, (255,0,0), t)
+    pygame.draw.rect(screen, (255,0,0), player)
+    pygame.display.flip()

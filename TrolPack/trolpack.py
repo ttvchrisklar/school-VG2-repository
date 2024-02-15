@@ -3,14 +3,12 @@ import sys
 import random
 
 pygame.init()
-
 # lists
 key_timeout = {}
 playerlist = []
 rectangles = []
 foodlist = []
 walllist = []
-ocupidesquers = []
 unocupidesquers = []
 borderw = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 bordera = [0,17,34,51,68,85,102,119,136,153,170,187,204,221,238,255,272]
@@ -18,6 +16,7 @@ borders = [272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288]
 borderd = [16,33,50,67,84,101,118,135,152,169,186,203,220,237,254,271,288]
 white = (255, 255, 255)
 red = (255, 0, 0)
+black = (0,0,0)
 width, height = 800, 800
 screenwidth, screenheight = 1500, 800
 go = False
@@ -40,10 +39,9 @@ class player:
         self.color = color
         pass
 class food:
-    def __init__(self,location,speedincreas,points,color):
+    def __init__(self,location,speedincreas,color):
         self.location = location
         self.speedincreas = speedincreas
-        self.points = points
         self.color = color
         pass
 class wall:
@@ -67,7 +65,7 @@ def cubeprinter():
             x = 360+col * (rect_size + row_spacing) #when game is done uncoment this
             y = 20 + row * (rect_size + row_spacing)
             wh = rect_size
-            c = red
+            c = black
             i = len(rectangles)
             newrec = gridclass(x,y,wh,io,o,c,i)
             rectangles.append(newrec)
@@ -80,18 +78,17 @@ def playerclasscrator():
     color = (0,0,255)
     newplayer = player(posision, lastposision, speed, score, color)
     playerlist.append(newplayer)
-    bordocupationupdater("PLAYER",posision)
+    bordocupationupdater("PLAYERMOVTO",posision)
 
-def createfood():
-    pos = randomsquer()
-    color = (0,255,0)
-    newfood = food(pos,10,1,color)
+def createfood(pos):
+    color = (0,200,0)
+    newfood = food(pos,10,color)
     foodlist.append(newfood)
     bordocupationupdater("FOOD",pos)
 
 def createwall():
     pos = randomsquer()
-    color = (128,128,128)
+    color = (64,64,64)
     newwall = wall(pos,color)
     walllist.append(newwall)
     bordocupationupdater("WALL",pos)
@@ -119,16 +116,20 @@ def playermove():
     if keys[pygame.K_ESCAPE]:
         pygame.quit()
         quit()
+    if keys[pygame.K_r] and go == True:
+        gamestart()
     if getPressed(keys, pygame.K_w, speed):
         if ptomove in borderw or rectangles[playerlist[0].pbox - 17].ocuideby == "WALL":
             print("hit wall")
+            gameover()
             return
         if rectangles[playerlist[0].pbox - 17].ocuideby == "FOOD" or rectangles[playerlist[0].pbox - 17].ocuideby == "AIR":
             playerlist[0].lpbox = playerlist[0].pbox
+            bordocupationupdater("PLAYERMOVFROM",ptomove)
             playerlist[0].pbox -= 17
             ptomove = playerlist[0].pbox
             eatfood(ptomove)
-            bordocupationupdater("PLAYER",ptomove)
+            bordocupationupdater("PLAYERMOVTO",ptomove)
     if getPressed(keys, pygame.K_a, speed):
         if ptomove in bordera or rectangles[playerlist[0].pbox - 1].ocuideby == "WALL":
             print("hit wall")
@@ -136,10 +137,11 @@ def playermove():
             return
         if rectangles[playerlist[0].pbox - 1].ocuideby == "FOOD" or rectangles[playerlist[0].pbox - 1].ocuideby == "AIR":
             playerlist[0].lpbox = playerlist[0].pbox
+            bordocupationupdater("PLAYERMOVFROM",ptomove)
             playerlist[0].pbox -= 1
             ptomove = playerlist[0].pbox
             eatfood(ptomove)
-            bordocupationupdater("PLAYER",ptomove)
+            bordocupationupdater("PLAYERMOVTO",ptomove)
     if getPressed(keys, pygame.K_s, speed):
         if ptomove in borders or rectangles[playerlist[0].pbox + 17].ocuideby == "WALL":
             print("hit wall")
@@ -147,10 +149,11 @@ def playermove():
             return
         if rectangles[playerlist[0].pbox + 17].ocuideby == "FOOD" or rectangles[playerlist[0].pbox + 17].ocuideby == "AIR":
             playerlist[0].lpbox = playerlist[0].pbox
+            bordocupationupdater("PLAYERMOVFROM",ptomove)
             playerlist[0].pbox += 17
             ptomove = playerlist[0].pbox
             eatfood(ptomove)
-            bordocupationupdater("PLAYER",ptomove)
+            bordocupationupdater("PLAYERMOVTO",ptomove)
     if getPressed(keys, pygame.K_d, speed):
         if ptomove in borderd or rectangles[playerlist[0].pbox + 1].ocuideby == "WALL":
             print("hit wall")
@@ -158,28 +161,26 @@ def playermove():
             return
         if rectangles[playerlist[0].pbox + 1].ocuideby == "FOOD" or rectangles[playerlist[0].pbox + 1].ocuideby == "AIR":
             playerlist[0].lpbox = playerlist[0].pbox
+            bordocupationupdater("PLAYERMOVFROM",ptomove)
             playerlist[0].pbox += 1
             ptomove = playerlist[0].pbox
             eatfood(ptomove)
-            bordocupationupdater("PLAYER",ptomove)
+            bordocupationupdater("PLAYERMOVTO",ptomove)
 
 def squerdocupationchecer():
-    global ocupidesquers
     global unocupidesquers
     unocupidesquers = []
-    ocupidesquers = []
     for i in range(len(rectangles)):
-        if rectangles[i].isocupied == True:
-            ocupidesquers.append(i)
-        else:
+        if rectangles[i].isocupied == False:
             unocupidesquers.append(i)
 
 def bordocupationupdater(type,location):
-    if type == "PLAYER":
+    if type == "PLAYERMOVTO":
         rectangles[location].isocupied = True
         rectangles[location].ocuideby = type
-        rectangles[playerlist[0].lpbox].isocupied = False
-        rectangles[playerlist[0].lpbox].ocuideby = "AIR"
+    if type == "PLAYERMOVFROM":
+        rectangles[location].isocupied = False
+        rectangles[location].ocuideby = "AIR"
     if type == "FOOD":
         rectangles[location].isocupied = True
         rectangles[location].ocuideby = type
@@ -196,14 +197,18 @@ def eatfood(location):
     if rectangles[location].ocuideby != "FOOD":
         return
     if rectangles[location].ocuideby == "FOOD":
-        playerlist[0].score += foodlist[0].points
-        print(playerlist[0].score, playerlist[0].speed)
+        for i in range(len(foodlist)):
+            for a in range(len(rectangles)):
+                if rectangles[a].id == foodlist[i].location and playerlist[0].pbox == foodlist[i].location:
+                    pos = i
+                    break
+        playerlist[0].score += 1
         if playerlist[0].speed != 100:
-            playerlist[0].speed -= foodlist[0].speedincreas
-        foodlist.clear()
+            playerlist[0].speed -= foodlist[pos].speedincreas
+        foodlist.pop(pos)
         bordocupationupdater("PLAYER",location)
         createwall()
-        createfood()
+        createfood(randomsquer())
         score = font.render(f'Score: {playerlist[0].score}', True, white,)
         speed = font.render(f'Speed: {playerlist[0].speed}', True, white,)
 
@@ -212,16 +217,23 @@ def randomsquer():
     return a
 
 def bordpainter():
+    seconderywallcolor = (150,150,150)
+    seconderyfoodcolor = (0,100,0)
     for i in range(len(rectangles)):
-        pygame.draw.rect(screen, rectangles[i].color, (rectangles[i].x, rectangles[i].y, rectangles[i].heightwidth, rectangles[i].heightwidth))
+        if i/2 == int(i/2):
+            pygame.draw.rect(screen, rectangles[i].color, (rectangles[i].x, rectangles[i].y, rectangles[i].heightwidth, rectangles[i].heightwidth))
+        else:    
+            pygame.draw.rect(screen, white, (rectangles[i].x, rectangles[i].y, rectangles[i].heightwidth, rectangles[i].heightwidth))  
     
-    pygame.draw.rect(screen, foodlist[0].color, (rectangles[foodlist[0].location].x, rectangles[foodlist[0].location].y, rectangles[foodlist[0].location].heightwidth, rectangles[foodlist[0].location].heightwidth))
+    for c in range(len(foodlist)):
+        pygame.draw.rect(screen, foodlist[c].color, (rectangles[foodlist[c].location].x, rectangles[foodlist[c].location].y, rectangles[foodlist[c].location].heightwidth, rectangles[foodlist[c].location].heightwidth))
+        pygame.draw.rect(screen, seconderyfoodcolor, (rectangles[foodlist[c].location].x, rectangles[foodlist[c].location].y, rectangles[foodlist[c].location].heightwidth, rectangles[foodlist[c].location].heightwidth),3)
     
     pygame.draw.rect(screen, playerlist[0].color, (rectangles[playerlist[0].pbox].x, rectangles[playerlist[0].pbox].y, rectangles[playerlist[0].pbox].heightwidth, rectangles[playerlist[0].pbox].heightwidth))
-    
     if len(walllist) !=0:
      for a in range(len(walllist)):
         pygame.draw.rect(screen, walllist[a].color, (rectangles[walllist[a].location].x, rectangles[walllist[a].location].y, rectangles[walllist[a].location].heightwidth, rectangles[walllist[a].location].heightwidth))
+        pygame.draw.rect(screen, seconderywallcolor, (rectangles[walllist[a].location].x, rectangles[walllist[a].location].y, rectangles[walllist[a].location].heightwidth, rectangles[walllist[a].location].heightwidth),3)
    
 # stil need to make a cheker for if the scuer is oqupied
 def gameover():
@@ -240,27 +252,33 @@ def gamestart():
     walllist = []
     cubeprinter()
     playerclasscrator()
-    createfood()
+    squerdocupationchecer()
+    createfood(randomsquer())
+    createfood(randomsquer())
+    createfood(randomsquer())
     stattextgen()
 
 def stattextgen():
-    global scoreRect, speedRect, score, speed, font
+    global scoreRect, speedRect, score, speed, font, font1, gameovertext, gameovertextRect
     font = pygame.font.SysFont('Corbel', 32)
-    score = font.render(f'Score: {playerlist[0].score}', True, white,)
+    font1 = pygame.font.SysFont('Corbel', 50)
+    score = font.render(f'Score: {playerlist[0].score}', True, white)
     scoreRect = score.get_rect()
-    speed = font.render(f'Speed: {playerlist[0].speed}', True, white,)
+    scoreRect.center = (100,400)
+    speed = font.render(f'Speed: {playerlist[0].speed}', True, white)
     speedRect = speed.get_rect()
     speedRect.center = (100,450)
-    scoreRect.center = (100,400)
+    gameovertext = font1.render(f'Game Over', True, red)
+    gameovertextRect = speed.get_rect()
+    gameovertextRect.center = (screenwidth/2-30, screenheight/2-60)
 
 def mainmenu():
     global color_light, color_dark, text
     # white color  
-    tcolor = (0,255,255)
     color_light = (170,170,170)  
     color_dark = (100,100,100)   
     smallfont = pygame.font.SysFont('Corbel',35)  
-    text = smallfont.render('retry' , True , tcolor) 
+    text = smallfont.render('retry' , True , white) 
 
 gamestart()
 # Main game loop
@@ -281,21 +299,20 @@ def gameloop():
                     gamestart()
         
         # Clear the screen
-        screen.fill((0, 0, 0))
-        screen.blit(score, scoreRect)
-        screen.blit(speed, speedRect)  
+        screen.fill((30, 30, 30))
+          
       
     # superimposing the text onto our button
         if go == True:
             mouse = pygame.mouse.get_pos() 
-            if screenwidth/2-40 <= mouse[0] <= screenwidth/2+140 and screenheight/2 <= mouse[1] <= screenheight/2+40:  
-                pygame.draw.rect(screen,color_light,[screenwidth/2-40,screenheight/2,100,50])  
-          
-            else:  
-                pygame.draw.rect(screen,color_dark,[screenwidth/2-40,screenheight/2,100,50])
             screen.blit(text, (screenwidth/2-20,screenheight/2+5)) 
+            screen.blit(gameovertext, gameovertextRect)
+            screen.blit(score, (screenwidth/2-35,screenheight/2-25))
         else:
+            pygame.time.delay(100)
             bordpainter()
+            screen.blit(score, scoreRect)
+            screen.blit(speed, speedRect)
         playermove()
         # Draw rectangles from the list
         # Update the display
