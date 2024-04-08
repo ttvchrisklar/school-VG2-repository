@@ -352,6 +352,7 @@ def bord_painter():
             pygame.draw.rect(screen, secondery_wall_color, (rectangles[wall_list[a].location].x, rectangles[wall_list[a].location].y, rectangles[wall_list[a].location].height_width, rectangles[wall_list[a].location].height_width),3)
 
 def visebilety():
+    #this is for a game mode idea.
     for wall in wall_list:
         wall.is_viseble = False
     for food in food_list:
@@ -406,6 +407,7 @@ def visebilety():
                 rec.is_viseble = True
 
 def game_high_score():
+    #this will read 
     global high_score
     file = open(txt_dock,'r',encoding='utf-8')
     lines_read = file.readlines()
